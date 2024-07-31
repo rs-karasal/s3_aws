@@ -23,8 +23,8 @@ class UploadClient:
             key: str,
             content_type: str,
             file_size: int,
-            expires: int = 3600,
-            chunk_size: int = 50 * 1024 * 1024
+            expires = 3600,
+            chunk_size = 50 * 1024 ** 2
     ) -> UploadResponse:
         total_chunks = math.ceil(file_size / chunk_size)
 
@@ -54,7 +54,6 @@ class UploadClient:
             )
             urls.append(signed_url)
 
-        print(urls)
         return UploadResponse(
             urls=urls,
             chunk_size=chunk_size,

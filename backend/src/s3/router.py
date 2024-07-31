@@ -21,7 +21,6 @@ async def upload_file(payload: UploadPayload) -> UploadResponse:
 
     return client.get_presigned_multipart(
         key,
-        payload.file_name,
         payload.content_type,
         payload.file_size,
     )
